@@ -1,0 +1,36 @@
+body {
+  background: url("../images/train.jpeg");
+}
+
+.jumbotron {
+  text-align: center !important;
+  background: navy !important;
+  color: lightblue !important;
+}
+
+p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+  font-size: 20pt !important;
+  color: lightblue !important;
+}
+
+h2 {
+  color: lightblue;
+}
+h3 {
+  color: lightblue !important;
+}
+
+#train-table-body {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#train-table-header th {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
