@@ -10,21 +10,9 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   
-  <script>
-  var config = {
-  apiKey: "AIzaSyAcbSVi8gvVrVzlV3Qe9ObntGO53yl4fmw",
-  authDomain: "choochoo-d4202.firebaseapp.com",
-  databaseURL: "https://choochoo-d4202.firebaseio.com",
-  projectId: "choochoo-d4202",
-  storageBucket: "choochoo-d4202.appspot.com",
-  messagingSenderId: "103519842177"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
-  </script>
+  
   <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script> -->
 
 
 
@@ -42,14 +30,14 @@ var database = firebase.database();
       <div class="row">
         <div class="col-lg-12">
 
-      <div class="panel panel-primary">
+      <div class="panel panel-first">
         <div class="panel-heading">
-          <h2 class="panel-title"><strong>Current Train Scheduler</strong></h2>
+          <h2 class="panel-title">Current Train Scheduler</h2>
         </div>
             <div class="panel-body">
               <table class="table table-hover" id="train-table">
                 <thead>
-                  <tr id="train-table-header">
+                  <tr id="table-title">
                     <th>Train Name</th>
                     <th>Destination</th>
                     <th>Frequency (min)</th>
@@ -66,34 +54,34 @@ var database = firebase.database();
     </div>
               <br>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-first">
         <div class="panel-heading">
-          <h2 class="panel-title"><strong>Add Train</strong></h2>
+          <h3 class="panel-title"><italic>Add New Trains Below</italic></h3>
         </div>
 
       <div class="panel-body">
     
         <form>
    
-          <div class="form-group"><label for="train-name-input">Train Name</label>
-          <input type="text" class="form-control" id="train-name-input">
+          <div class="form-group"><label for="input-train-name">Train Name</label>
+          <input type="text" class="form-control" id="input-train-name">
           </div>
 
          
-          <div class="form-group"><label for="destination-input">Destination</label>
-          <input type="text" class="form-control" id="destination-input">
+          <div class="form-group"><label for="input-train-destination">Destination</label>
+          <input type="text" class="form-control" id="input-train-destination">
           </div>
 
-          <div class="form-group"><label for="first-train-input">First Train Time  <span style="font-weight:normal;">(12 hr format- HH:MM:AM/PM)</span></label>
-          <input type="time"  name="time" class="form-control" id="first-train-input">
+          <div class="form-group"><label for="input-initial-time">First Daily Train Time<span style="font-weight:normal;">(12 hr format- HH:MM:AM/PM)</span></label>
+          <input type="time"  name="time" class="form-control" id="input-initial-time">
           </div>
 
         
-          <div class="form-group"><label for="frequency-input">Frequency (min)</label>
-          <input type="number" class="form-control" id="frequency-input">
+          <div class="form-group"><label for="input-train-frequency">Frequency (min)</label>
+          <input type="number" class="form-control" id="input-train-frequency">
           </div>
 
-          <button class="btn btn-primary" id="add-train-btn" type="submit">Submit</button>
+          <button class="btn btn-primary" id="train-submit" type="submit">Submit</button>
         </form>
         </div>
       </div>
