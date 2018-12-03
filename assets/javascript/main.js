@@ -13,7 +13,7 @@ var database = firebase.database();
 $("#train-submit").on("click", function() {
   event.preventDefault();
 
-  var trainName = $("#input-train-name")
+  var trainTitle = $("#input-train-name")
     .val()
     .trim();
   var trainDestination = $("#input-train-destination")
@@ -26,14 +26,14 @@ $("#train-submit").on("click", function() {
     .val()
     .trim();
 
-  var newTrain = {
-    name: trainName,
+  var addTrain = {
+    name: trainTitle,
     destination: trainDestination,
     time: initialTrain,
     frequency: trainFrequency
   };
 
-  database.ref().push(newTrain);
+  database.ref().push(addTrain);
 
   alert("Train added");
 
@@ -46,7 +46,7 @@ $("#train-submit").on("click", function() {
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(childSnapshot.val());
 
-  var trainName = childSnapshot.val().name;
+  var trainTitle = childSnapshot.val().name;
   var trainDestination = childSnapshot.val().destination;
   var initialTrain = childSnapshot.val().time;
   var trainFrequency = childSnapshot.val().frequency;
@@ -58,23 +58,23 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   var currentTime = moment();
 
-  var diffTime = moment().diff(moment(initialTrainConverted), "minutes");
+  var newTime = moment().diff(moment(initialTrainConverted), "minutes");
 
-  var trainTimeRemainder = diffTime % trainFrequency;
+  var Times = newTime % trainFrequency;
 
-  var trainXminsAway = trainFrequency - trainTimeRemainder;
+  var trainArrival = trainFrequency - Times;
 
-  var nextTrainArrival = moment()
-    .add(trainXminsAway, "minutes")
+  var nextTrain = moment()
+    .add(trainArrival, "minutes")
     .format("hh:mm A");
 
   $("#train-table > tbody").append(
     `<tr id="train-table-body">
-               <td> ${trainName} </td>
+               <td> ${trainTitle} </td>
                <td> ${trainDestination} </td>
                <td> ${trainFrequency} </td>
-               <td> ${nextTrainArrival} </td>
-               <td> ${trainXminsAway} </td>
+               <td> ${nextTrain} </td>
+               <td> ${trainArrival} </td>
            </tr>
           `
   );
